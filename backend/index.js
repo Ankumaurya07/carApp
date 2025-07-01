@@ -10,11 +10,13 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-const allowedOrigins = ['http://localhost:5173']; 
+const allowedOrigins = ['http://localhost:5173',
+                       'https://ankitcars.onrender.com']; 
 
 app.use(cors({
   origin: allowedOrigins,
   credentials: true,
+  methods: ['GET', 'POST'],
 }));
 
 mongoose.connect(process.env.MONGO_URL)
